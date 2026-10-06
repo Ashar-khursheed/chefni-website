@@ -23,7 +23,7 @@ export type Product = {
   /** Serving-suggestion photo, cut out on a transparent background. */
   image: StaticImageData;
   imageAlt: string;
-  tone: "blush" | "butter";
+  tone: "blush" | "petal";
   /** Loose ingredients that fall past the product as its section scrolls by. */
   garnish: FoodItem[];
 };
@@ -72,7 +72,7 @@ export const products: Product[] = [
     availability: [{ kind: "phone", note: "Call to find out where to get it" }],
     image: pattyStack,
     imageAlt: "Serving suggestion: a stack of three grilled beef burger patties on lettuce",
-    tone: "butter",
+    tone: "petal",
     garnish: [
       { kind: "patty", left: "90%", top: "2%", size: "clamp(58px, 7.5vw, 120px)", fall: [-160, 320], rotate: [20, -150], depth: 32 },
       { kind: "patty", left: "0%", top: "58%", size: "clamp(46px, 5.5vw, 92px)", fall: [-260, 360], rotate: [-25, 130], depth: 22, className: "max-md:hidden" },

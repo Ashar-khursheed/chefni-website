@@ -134,7 +134,7 @@ function Item({
             src={item.kind === "patty" ? pattyTop : noodleNest}
             alt=""
             sizes="160px"
-            className="h-auto w-full drop-shadow-[0_18px_18px_rgb(42_17_40/0.28)]"
+            className="h-auto w-full drop-shadow-[0_18px_18px_rgb(46_26_34/0.28)]"
           />
         ) : (
           <Garnish kind={item.kind} />

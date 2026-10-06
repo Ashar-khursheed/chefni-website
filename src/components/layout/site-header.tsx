@@ -42,7 +42,7 @@ export function SiteHeader() {
           className={cn(
             "transition-[background-color,box-shadow,backdrop-filter] duration-500",
             scrolled && !open
-              ? "bg-cream/85 shadow-[0_1px_0_0_rgb(42_17_40/0.08)] backdrop-blur-md"
+              ? "bg-cream/85 shadow-[0_1px_0_0_rgb(46_26_34/0.08)] backdrop-blur-md"
               : "bg-transparent",
           )}
         >
@@ -62,7 +62,7 @@ export function SiteHeader() {
                         aria-current={active ? "page" : undefined}
                         className={cn(
                           "relative block rounded-full px-4 py-2 text-[0.95rem] font-medium transition-colors",
-                          active ? "text-plum-deep" : "text-ink/75 hover:text-ink",
+                          active ? "text-maroon" : "text-ink/75 hover:text-ink",
                         )}
                       >
                         {active && (
@@ -145,7 +145,7 @@ export function SiteHeader() {
                         aria-current={pathname === item.href ? "page" : undefined}
                         className={cn(
                           "block py-4 font-display text-4xl",
-                          pathname === item.href && "italic text-butter",
+                          pathname === item.href && "italic text-petal",
                         )}
                       >
                         {item.label}

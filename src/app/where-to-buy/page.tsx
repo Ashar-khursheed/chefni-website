@@ -32,7 +32,7 @@ export default function WhereToBuyPage() {
       <section className="container-page pb-24 md:pb-32">
         <RevealGroup className="grid gap-7 lg:grid-cols-2">
           {products.map((product) => (
-            <RevealItem key={product.slug} className="flex flex-col rounded-[2rem] bg-paper p-6 shadow-[0_30px_80px_-50px_rgb(42_17_40/0.35)] md:p-9">
+            <RevealItem key={product.slug} className="flex flex-col rounded-[2rem] bg-paper p-6 shadow-[0_30px_80px_-50px_rgb(46_26_34/0.35)] md:p-9">
               <div className="flex items-center gap-5">
                 <Image
                   src={product.image}
@@ -51,7 +51,7 @@ export default function WhereToBuyPage() {
               <AvailabilityList items={product.availability} className="mt-6" />
               <Link
                 href={`/products/${product.slug}`}
-                className="mt-6 self-start border-b border-current pb-0.5 font-semibold text-plum transition-colors hover:text-plum-deep"
+                className="mt-6 self-start border-b border-current pb-0.5 font-semibold text-rose transition-colors hover:text-maroon"
               >
                 About this product
               </Link>
@@ -62,7 +62,7 @@ export default function WhereToBuyPage() {
         <Reveal className="mt-10 grid gap-8 rounded-[2rem] bg-ink p-8 text-paper md:grid-cols-[1.2fr_1fr] md:items-center md:p-12">
           <div>
             <h2 className="text-3xl md:text-4xl">
-              Can&rsquo;t find it <em className="text-butter">on the shelf?</em>
+              Can&rsquo;t find it <em className="text-petal">on the shelf?</em>
             </h2>
             <p className="mt-3 max-w-lg text-paper/70">
               Call us and we will tell you where it is in stock, or follow our Facebook page for updates.
@@ -71,7 +71,7 @@ export default function WhereToBuyPage() {
           <div className="flex flex-wrap gap-3 md:justify-end">
             <a
               href={site.phone.href}
-              className="inline-flex items-center gap-2.5 rounded-full bg-paper px-6 py-3.5 font-semibold text-ink transition-colors duration-300 hover:bg-butter"
+              className="inline-flex items-center gap-2.5 rounded-full bg-paper px-6 py-3.5 font-semibold text-ink transition-colors duration-300 hover:bg-petal"
             >
               <PhoneIcon className="size-5" />
               {site.phone.display}

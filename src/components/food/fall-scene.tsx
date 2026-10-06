@@ -61,7 +61,7 @@ export function FallScene() {
   const glow = useTransform(useSlice(scrollYProgress, [0, 1]), [0, 1], [0.6, 1.25]);
 
   return (
-    <section ref={ref} aria-label={`${site.tagline} ${site.promise}.`} className="relative h-[280vh] bg-plum-deep text-paper">
+    <section ref={ref} aria-label={`${site.tagline} ${site.promise}.`} className="relative h-[280vh] bg-maroon text-paper">
       <div className="scallop absolute inset-x-0 top-0 z-30 text-cream" aria-hidden />
       <div className="scallop scallop-up absolute inset-x-0 bottom-0 z-30 text-cream" aria-hidden />
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
@@ -76,7 +76,7 @@ export function FallScene() {
             <Word progress={scrollYProgress} at={0.06}>
               Fine.
             </Word>{" "}
-            <Word progress={scrollYProgress} at={0.28} className="italic text-butter">
+            <Word progress={scrollYProgress} at={0.28} className="italic text-petal">
               Fast.
             </Word>{" "}
             <Word progress={scrollYProgress} at={0.5} className="text-berry">

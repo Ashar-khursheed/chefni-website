@@ -7,9 +7,9 @@ const base =
   "group inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-3.5 text-[0.95rem] font-semibold leading-none transition-[background-color,color,border-color,transform] duration-300 ease-out-expo active:scale-[0.98] disabled:pointer-events-none disabled:opacity-60";
 
 const variants = {
-  primary: "bg-plum text-paper hover:bg-plum-deep",
+  primary: "bg-rose text-paper hover:bg-maroon",
   outline: "border border-ink/20 text-ink hover:border-ink hover:bg-ink hover:text-paper",
-  light: "bg-paper text-ink hover:bg-butter",
+  light: "bg-paper text-ink hover:bg-petal",
   ghostLight: "border border-paper/30 text-paper hover:bg-paper hover:text-ink",
 } as const;
 
@@ -63,7 +63,7 @@ export function TextLink({ className, children, ...props }: ComponentProps<typeo
   return (
     <Link
       className={cn(
-        "group inline-flex items-center gap-2 border-b border-current pb-1 font-semibold text-plum transition-colors hover:text-plum-deep",
+        "group inline-flex items-center gap-2 border-b border-current pb-1 font-semibold text-rose transition-colors hover:text-maroon",
         className,
       )}
       {...props}

@@ -14,7 +14,7 @@ const socials = [
 ];
 
 const heading = "mb-5 text-xs font-semibold uppercase tracking-[0.16em] text-paper/50";
-const link = "text-paper/80 transition-colors hover:text-butter";
+const link = "text-paper/80 transition-colors hover:text-petal";
 
 export function SiteFooter() {
   return (
@@ -23,7 +23,7 @@ export function SiteFooter() {
 
       <div className="container-page pb-10 pt-20 md:pt-28">
         <Link href="/where-to-buy" className="group block border-b border-paper/15 pb-14 md:pb-20">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.16em] text-butter">Looking for Chefni?</p>
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.16em] text-petal">Looking for Chefni?</p>
           <p className="flex flex-wrap items-end gap-x-6 gap-y-2 font-display text-[clamp(2.75rem,8vw,7rem)] leading-[0.95] tracking-tight">
             See where <em className="text-berry">to buy</em>
             <span className="mb-[0.12em] grid size-[0.7em] place-items-center rounded-full border border-paper/30 transition-colors duration-500 group-hover:border-berry group-hover:bg-berry">
@@ -84,17 +84,17 @@ export function SiteFooter() {
           <div>
             <h2 className={heading}>Say hello</h2>
             <address className="space-y-3 not-italic text-paper/85">
-              <a href={site.phone.href} className="block font-display text-3xl transition-colors hover:text-butter">
+              <a href={site.phone.href} className="block font-display text-3xl transition-colors hover:text-petal">
                 {site.phone.display}
               </a>
-              <a href={`mailto:${site.email}`} className="block transition-colors hover:text-butter">
+              <a href={`mailto:${site.email}`} className="block transition-colors hover:text-petal">
                 {site.email}
               </a>
               <a
                 href={site.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-paper/65 transition-colors hover:text-butter"
+                className="block text-paper/65 transition-colors hover:text-petal"
               >
                 facebook.com/chefni
               </a>

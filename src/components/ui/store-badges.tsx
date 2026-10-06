@@ -15,7 +15,7 @@ function Badge({ url, store, icon, tone }: BadgeProps) {
   const className = cn(
     "flex h-14 min-w-44 items-center gap-3 rounded-2xl border px-4 text-left transition-colors duration-300",
     tone === "dark" ? "border-paper/20 bg-paper/5 text-paper" : "border-ink/15 bg-ink text-paper",
-    url && (tone === "dark" ? "hover:bg-paper hover:text-ink" : "hover:bg-plum-deep"),
+    url && (tone === "dark" ? "hover:bg-paper hover:text-ink" : "hover:bg-maroon"),
   );
 
   const content = (

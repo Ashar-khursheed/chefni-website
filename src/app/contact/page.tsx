@@ -64,12 +64,12 @@ export default function ContactPage() {
               <a
                 href={href}
                 {...(external && { target: "_blank", rel: "noopener noreferrer" })}
-                className="group flex h-full flex-col rounded-[2rem] bg-paper p-7 shadow-[0_30px_80px_-50px_rgb(42_17_40/0.35)] transition-colors duration-500 hover:bg-plum hover:text-paper md:p-9"
+                className="group flex h-full flex-col rounded-[2rem] bg-paper p-7 shadow-[0_30px_80px_-50px_rgb(46_26_34/0.35)] transition-colors duration-500 hover:bg-rose hover:text-paper md:p-9"
               >
-                <span className="grid size-14 place-items-center rounded-full bg-blush text-plum transition-colors duration-500 group-hover:bg-paper">
+                <span className="grid size-14 place-items-center rounded-full bg-blush text-rose transition-colors duration-500 group-hover:bg-paper">
                   <Icon className="size-6" />
                 </span>
-                <p className="mt-8 text-xs font-semibold uppercase tracking-[0.16em] text-plum transition-colors duration-500 group-hover:text-butter">
+                <p className="mt-8 text-xs font-semibold uppercase tracking-[0.16em] text-rose transition-colors duration-500 group-hover:text-petal">
                   {label}
                 </p>
                 <p className="mt-2 break-words font-display text-[1.7rem] leading-tight">{value}</p>

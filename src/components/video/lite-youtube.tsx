@@ -48,7 +48,7 @@ export function LiteYouTube({ id, title, eager = false, className }: LiteYouTube
             className="object-cover transition-transform duration-[1.2s] ease-out-expo group-hover:scale-105"
           />
           <span className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent" />
-          <span className="absolute left-1/2 top-1/2 grid size-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-paper text-plum shadow-xl transition-transform duration-500 ease-out-expo group-hover:scale-110 md:size-20">
+          <span className="absolute left-1/2 top-1/2 grid size-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-paper text-rose shadow-xl transition-transform duration-500 ease-out-expo group-hover:scale-110 md:size-20">
             <PlayIcon className="size-7 translate-x-0.5 md:size-8" />
           </span>
         </button>

@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 type ProductArtProps = {
   image: StaticImageData;
   alt: string;
-  tone: "blush" | "butter";
+  tone: "blush" | "petal";
   /** Load ahead of everything else. For art that is visible without scrolling. */
   preload?: boolean;
   className?: string;
@@ -37,12 +37,12 @@ export function ProductArt({ image, alt, tone, preload = false, className }: Pro
     <div ref={ref} className={cn("relative mx-auto aspect-square w-full max-w-lg", className)}>
       <motion.div
         aria-hidden
-        className={cn("absolute inset-[7%] rounded-full", tone === "blush" ? "bg-blush" : "bg-butter/55")}
+        className={cn("absolute inset-[7%] rounded-full", tone === "blush" ? "bg-blush" : "bg-petal/55")}
         style={{ x: plateX, scale }}
       />
       <motion.div
         aria-hidden
-        className="absolute inset-0 rounded-full border-2 border-dashed border-plum/25"
+        className="absolute inset-0 rounded-full border-2 border-dashed border-rose/25"
         style={{ rotate: ringRotate }}
       />
       <motion.div className="absolute inset-0 grid place-items-center" style={{ x, y, rotate, scale }}>
@@ -56,7 +56,7 @@ export function ProductArt({ image, alt, tone, preload = false, className }: Pro
             alt={alt}
             preload={preload}
             sizes="(min-width: 1024px) 460px, 80vw"
-            className="h-auto w-full drop-shadow-[0_40px_35px_rgb(42_17_40/0.35)]"
+            className="h-auto w-full drop-shadow-[0_40px_35px_rgb(46_26_34/0.35)]"
           />
         </motion.div>
       </motion.div>

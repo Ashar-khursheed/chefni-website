@@ -42,7 +42,7 @@ export function ProductFeature({ product, flip = false, link = true, headingLeve
           <RevealGroup className="mt-8 grid grid-cols-2 gap-x-6 border-t border-ink/10">
             {product.facts.map((fact) => (
               <RevealItem key={fact.label} className="border-b border-ink/10 py-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-plum">{fact.label}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-rose">{fact.label}</p>
                 <p className="mt-1 font-display text-xl">{fact.value}</p>
               </RevealItem>
             ))}

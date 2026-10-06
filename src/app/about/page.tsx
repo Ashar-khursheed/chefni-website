@@ -92,7 +92,7 @@ export default function AboutPage() {
         <div className="scallop text-cream" aria-hidden />
         <div className="container-page py-24 md:py-32">
           <SectionHeading eyebrow="Experience">
-            The road to <em className="text-plum">this kitchen</em>
+            The road to <em className="text-rose">this kitchen</em>
           </SectionHeading>
           <div className="mt-14 md:mt-20">
             <Timeline />
@@ -117,7 +117,7 @@ export default function AboutPage() {
             eyebrow="On television"
             lead="Between 2013 and 2014 Chef Rabia cooked on Masala TV in Karachi, on both live and pre-recorded culinary shows."
           >
-            Live on <em className="text-plum">Masala TV</em>
+            Live on <em className="text-rose">Masala TV</em>
           </SectionHeading>
           <RevealGroup className="mt-8 flex flex-wrap gap-2.5">
             {tvShows.map((show) => (
@@ -131,7 +131,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="teaching" className="scroll-mt-28 bg-plum-deep text-paper">
+      <section id="teaching" className="scroll-mt-28 bg-maroon text-paper">
         <div className="scallop text-cream" aria-hidden />
         <div className="container-page py-24 md:py-32">
           <SectionHeading
@@ -139,7 +139,7 @@ export default function AboutPage() {
             tone="light"
             lead="At COTHM, the College of Tourism & Hotel Management in Karachi, Chef Rabia trained students on the Advanced Culinary Program and developed its curriculum. Class did not always stay in the classroom."
           >
-            Teaching the <em className="text-butter">next class of chefs</em>
+            Teaching the <em className="text-petal">next class of chefs</em>
           </SectionHeading>
 
           <RevealGroup className="mt-14 grid gap-5 sm:grid-cols-3">
@@ -166,7 +166,7 @@ export default function AboutPage() {
         <Reveal className="mx-auto max-w-3xl">
           <p className="eyebrow">Fika · Upper Crust · P.F. Chang&rsquo;s</p>
           <h2 className="mt-5 text-[clamp(2.25rem,5.4vw,4.5rem)] leading-[1.02]">
-            Restaurant standards, <em className="text-plum">home kitchens</em>
+            Restaurant standards, <em className="text-rose">home kitchens</em>
           </h2>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
             Chef and pastry chef at Fika, pastry chef and operations manager at Upper Crust, kitchen manager for

@@ -62,7 +62,7 @@ export function Hero() {
 
           <h1 className="mt-6 text-[clamp(2.5rem,5.5vw,5rem)] leading-[1]">
             <RisingWords text="Frozen favourites," delay={0.1} className="block" />
-            <RisingWords text="solely premium for you." delay={0.28} className="block italic text-plum" />
+            <RisingWords text="solely premium for you." delay={0.28} className="block italic text-rose" />
           </h1>
 
           <motion.p className="mt-7 max-w-xl text-lg leading-relaxed text-ink-soft md:text-xl" {...fadeUp(0.55)}>
@@ -82,16 +82,16 @@ export function Hero() {
             {...fadeUp(0.8)}
           >
             <span className="inline-flex items-center gap-2">
-              <PinIcon className="size-4 text-plum" />
+              <PinIcon className="size-4 text-rose" />
               Now at Fresh Basket, Karachi
             </span>
             <a
               href={site.social.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 transition-colors hover:text-plum"
+              className="inline-flex items-center gap-2 transition-colors hover:text-rose"
             >
-              <FacebookIcon className="size-4 text-plum" />
+              <FacebookIcon className="size-4 text-rose" />
               Follow on Facebook
             </a>
           </motion.div>
@@ -100,13 +100,13 @@ export function Hero() {
         <div className="relative mx-auto aspect-square w-full max-w-md lg:max-w-none">
           <motion.div
             aria-hidden
-            className="absolute inset-[4%] rounded-full bg-gradient-to-br from-blush via-blush to-butter/70"
+            className="absolute inset-[4%] rounded-full bg-gradient-to-br from-blush via-blush to-petal/70"
             style={{ x: plateX }}
             initial={{ scale: 0.4, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.15, ease: EASE }}
           />
-          <div aria-hidden className="absolute inset-0 animate-spin-slow rounded-full border-2 border-dashed border-plum/20" />
+          <div aria-hidden className="absolute inset-0 animate-spin-slow rounded-full border-2 border-dashed border-rose/20" />
 
           <motion.div className="absolute left-[-2%] top-[2%] w-[84%]" style={{ y: bowlY, x: bowlX, rotate: bowlTilt }}>
             <motion.div
@@ -120,7 +120,7 @@ export function Hero() {
                   alt="A bowl of stir-fried egg noodles with vegetables, chopsticks lifting a twirl of noodles"
                   preload
                   sizes="(min-width: 1024px) 40vw, 80vw"
-                  className="h-auto w-full drop-shadow-[0_40px_35px_rgb(42_17_40/0.35)]"
+                  className="h-auto w-full drop-shadow-[0_40px_35px_rgb(46_26_34/0.35)]"
                 />
               </motion.div>
             </motion.div>
@@ -142,7 +142,7 @@ export function Hero() {
                     alt="A stack of three grilled beef burger patties on lettuce"
                     preload
                     sizes="(min-width: 1024px) 22vw, 44vw"
-                    className="h-auto w-full drop-shadow-[0_30px_28px_rgb(42_17_40/0.4)]"
+                    className="h-auto w-full drop-shadow-[0_30px_28px_rgb(46_26_34/0.4)]"
                   />
                 </motion.div>
               </motion.div>

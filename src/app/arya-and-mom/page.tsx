@@ -73,11 +73,11 @@ export default function AryaAndMomPage() {
         <Reveal className="mt-20 flex flex-col items-start justify-between gap-6 rounded-[2rem] bg-blush p-8 md:mt-28 md:flex-row md:items-center md:p-12">
           <div>
             <h2 className="text-3xl md:text-4xl">
-              New videos land on <em className="text-plum">YouTube first</em>
+              New videos land on <em className="text-rose">YouTube first</em>
             </h2>
             <p className="mt-3 text-ink-soft">
               Say hello to Arya at{" "}
-              <a href={`mailto:${site.aryaEmail}`} className="font-semibold text-plum underline underline-offset-4">
+              <a href={`mailto:${site.aryaEmail}`} className="font-semibold text-rose underline underline-offset-4">
                 {site.aryaEmail}
               </a>
               .

@@ -35,7 +35,7 @@ export function Timeline() {
             aria-hidden
             className="absolute left-0 top-2 size-[11px] rounded-full border-2 border-berry bg-cream md:left-[11rem]"
           />
-          <p className="font-display text-lg italic text-plum md:pr-6 md:text-right">{role.period}</p>
+          <p className="font-display text-lg italic text-rose md:pr-6 md:text-right">{role.period}</p>
           <div className="md:pl-10">
             <h3 className="text-2xl leading-snug md:text-3xl">{role.place}</h3>
             <p className="mt-1.5 font-medium">{role.title}</p>

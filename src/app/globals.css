@@ -4,14 +4,13 @@
   --color-cream: #fbf5ee;
   --color-paper: #fffdfa;
   --color-sand: #f4e7dc;
-  --color-ink: #2a1128;
-  --color-ink-soft: #5c4459;
-  --color-plum: #8c3b8a;
-  --color-plum-deep: #5e2460;
-  --color-berry: #e24a85;
-  --color-blush: #fbe3ec;
-  --color-cocoa: #4b2230;
-  --color-butter: #f2c879;
+  --color-ink: #2e1a22;
+  --color-ink-soft: #6b525a;
+  --color-rose: #c8336a;
+  --color-maroon: #70293d;
+  --color-berry: #ec6a94;
+  --color-blush: #fde4ec;
+  --color-petal: #ffb1cf;
 
   --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
   --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
@@ -64,7 +63,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-plum);
+    outline: 2px solid var(--color-rose);
     outline-offset: 3px;
     border-radius: 4px;
   }
@@ -91,7 +90,7 @@
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--color-plum);
+    color: var(--color-rose);
   }
 
   .eyebrow::before {

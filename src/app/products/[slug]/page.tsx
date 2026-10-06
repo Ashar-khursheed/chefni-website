@@ -67,7 +67,7 @@ export default async function ProductPage({ params }: PageProps) {
     <>
       <div className="pb-24 pt-36 md:pb-32 md:pt-44">
         <nav aria-label="Breadcrumb" className="container-page mb-10 text-sm text-ink-soft">
-          <Link href="/products" className="transition-colors hover:text-plum">
+          <Link href="/products" className="transition-colors hover:text-rose">
             Products
           </Link>
           <span aria-hidden className="mx-2">
@@ -97,7 +97,7 @@ export default async function ProductPage({ params }: PageProps) {
                 <h2 className="mt-3 text-3xl md:text-5xl">{other.name}</h2>
                 <p className="mt-2 hidden text-ink-soft sm:block">{other.summary}</p>
               </div>
-              <span className="grid size-12 shrink-0 place-items-center rounded-full border border-ink/20 transition-colors duration-500 group-hover:border-plum group-hover:bg-plum group-hover:text-paper md:size-16">
+              <span className="grid size-12 shrink-0 place-items-center rounded-full border border-ink/20 transition-colors duration-500 group-hover:border-rose group-hover:bg-rose group-hover:text-paper md:size-16">
                 <Arrow className="size-5" />
               </span>
             </Link>

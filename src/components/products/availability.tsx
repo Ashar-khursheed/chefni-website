@@ -20,7 +20,7 @@ export function AvailabilityList({
   );
   const badge = cn(
     "grid size-11 shrink-0 place-items-center rounded-full",
-    light ? "bg-butter text-ink" : "bg-plum text-paper",
+    light ? "bg-petal text-ink" : "bg-rose text-paper",
   );
   const note = cn("text-sm", light ? "text-paper/65" : "text-ink-soft");
 
@@ -41,7 +41,7 @@ export function AvailabilityList({
           </li>
         ) : (
           <li key="phone">
-            <a href={site.phone.href} className={cn(row, "transition-colors", light ? "hover:bg-paper/10" : "hover:border-plum")}>
+            <a href={site.phone.href} className={cn(row, "transition-colors", light ? "hover:bg-paper/10" : "hover:border-rose")}>
               <span className={badge}>
                 <PhoneIcon className="size-5" />
               </span>

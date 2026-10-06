@@ -17,7 +17,7 @@ import { site } from "@/lib/site";
 
 export function WhereToBuy() {
   return (
-    <section className="bg-plum-deep text-paper">
+    <section className="bg-maroon text-paper">
       <div className="scallop text-cream" aria-hidden />
       <div className="container-page py-24 md:py-32">
         <div className="flex flex-wrap items-end justify-between gap-8">
@@ -26,7 +26,7 @@ export function WhereToBuy() {
             tone="light"
             lead="Chefni is not sold on this website. Here is where each product is available right now."
           >
-            Find it in <em className="text-butter">Karachi</em>
+            Find it in <em className="text-petal">Karachi</em>
           </SectionHeading>
           <Reveal delay={0.1}>
             <ButtonLink href="/where-to-buy" variant="light">
@@ -40,7 +40,7 @@ export function WhereToBuy() {
             <RevealItem key={product.slug} className="rounded-[2rem] bg-paper/[0.06] p-7 md:p-9">
               <div className="mb-6 flex items-baseline justify-between gap-4">
                 <h3 className="text-3xl">{product.name}</h3>
-                {product.price && <p className="font-display text-2xl italic text-butter">{product.price.display}</p>}
+                {product.price && <p className="font-display text-2xl italic text-petal">{product.price.display}</p>}
               </div>
               <AvailabilityList items={product.availability} tone="light" />
             </RevealItem>
@@ -69,7 +69,7 @@ export function ChefStory() {
               className="object-cover object-[38%_30%]"
             />
           </div>
-          <div className="absolute -bottom-6 right-4 rounded-2xl bg-plum px-6 py-4 text-paper shadow-[0_24px_50px_-24px_rgb(94_36_96/0.8)] md:right-8">
+          <div className="absolute -bottom-6 right-4 rounded-2xl bg-rose px-6 py-4 text-paper shadow-[0_24px_50px_-24px_rgb(112_41_61/0.8)] md:right-8">
             <p className="font-display text-xl italic">As seen on Masala TV</p>
             <p className="mt-1 text-sm text-paper/75">{tvShows.join(" · ")}</p>
           </div>
@@ -77,7 +77,7 @@ export function ChefStory() {
 
         <div>
           <SectionHeading eyebrow="The chef behind Chefni">
-            A chef&rsquo;s kitchen, <em className="text-plum">now in your freezer</em>
+            A chef&rsquo;s kitchen, <em className="text-rose">now in your freezer</em>
           </SectionHeading>
 
           <Reveal delay={0.1}>
@@ -132,7 +132,7 @@ export function FacebookBand() {
         >
           <div aria-hidden className="absolute -right-20 -top-24 size-72 rounded-full bg-berry/25 transition-transform duration-700 ease-out-expo group-hover:scale-125" />
           <div className="relative">
-            <p className="eyebrow text-butter">facebook.com/chefni</p>
+            <p className="eyebrow text-petal">facebook.com/chefni</p>
             <h2 className="mt-5 text-[clamp(2.25rem,5vw,4rem)] leading-[1.02]">
               Keep up with Chefni <em className="text-berry">on Facebook</em>
             </h2>
@@ -140,7 +140,7 @@ export function FacebookBand() {
               Follow the Chefni page for new products and new places to find them.
             </p>
           </div>
-          <span className="relative inline-flex shrink-0 items-center gap-3 self-start rounded-full bg-paper px-7 py-4 font-semibold text-ink transition-colors duration-300 group-hover:bg-butter md:self-auto">
+          <span className="relative inline-flex shrink-0 items-center gap-3 self-start rounded-full bg-paper px-7 py-4 font-semibold text-ink transition-colors duration-300 group-hover:bg-petal md:self-auto">
             <FacebookIcon className="size-5" />
             Follow Chefni
           </span>
@@ -155,7 +155,7 @@ export function AryaAndMom() {
     <section className="container-page">
       <Reveal className="relative overflow-hidden rounded-[2.5rem] bg-blush px-6 py-14 md:px-16 md:py-20">
         <div aria-hidden className="absolute -right-24 -top-24 size-80 rounded-full bg-berry/15" />
-        <div aria-hidden className="absolute -bottom-44 left-[8%] size-72 rounded-full bg-butter/35" />
+        <div aria-hidden className="absolute -bottom-44 left-[8%] size-72 rounded-full bg-petal/35" />
 
         <div className="relative grid items-center gap-10 md:grid-cols-[auto_1fr] md:gap-16">
           <div className="mx-auto w-44 -rotate-3 transition-transform duration-700 ease-out-expo hover:rotate-0 md:w-56">
@@ -163,14 +163,14 @@ export function AryaAndMom() {
               src={aryaPhoto}
               alt="Arya, the young cook from the Arya & Mom videos"
               sizes="224px"
-              className="h-auto w-full drop-shadow-[0_24px_30px_rgb(42_17_40/0.25)]"
+              className="h-auto w-full drop-shadow-[0_24px_30px_rgb(46_26_34/0.25)]"
             />
           </div>
 
           <div>
             <p className="eyebrow">For little cooks</p>
             <h2 className="mt-5 text-[clamp(2.25rem,5vw,4rem)] leading-[1.02]">
-              Join <em className="text-plum">Arya &amp; Mom</em> in the kitchen
+              Join <em className="text-rose">Arya &amp; Mom</em> in the kitchen
             </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
               Pancakes, brownies, chocolate chip cookies and cupcakes, made by Arya with a little help from Mom.
@@ -182,7 +182,7 @@ export function AryaAndMom() {
                 href={site.social.aryaYoutube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full px-5 py-3.5 font-semibold text-ink transition-colors hover:text-plum"
+                className="inline-flex items-center gap-2 rounded-full px-5 py-3.5 font-semibold text-ink transition-colors hover:text-rose"
               >
                 <YouTubeIcon className="size-5" />
                 Subscribe on YouTube
@@ -198,16 +198,16 @@ export function AryaAndMom() {
 export function AppComingSoon() {
   return (
     <section id="app" className="container-page py-24 md:py-36">
-      <Reveal className="relative grid overflow-hidden rounded-[2.5rem] bg-plum-deep text-paper lg:grid-cols-[1.15fr_0.85fr]">
+      <Reveal className="relative grid overflow-hidden rounded-[2.5rem] bg-maroon text-paper lg:grid-cols-[1.15fr_0.85fr]">
         <div
           aria-hidden
           className="absolute inset-0 opacity-[0.07] [background-image:radial-gradient(circle,white_1.5px,transparent_1.5px)] [background-size:22px_22px]"
         />
 
         <div className="relative px-6 py-14 md:px-16 md:py-24">
-          <p className="eyebrow text-butter">Coming soon</p>
+          <p className="eyebrow text-petal">Coming soon</p>
           <h2 className="mt-5 text-[clamp(2.25rem,5vw,4.25rem)] leading-[1.02]">
-            Chefni is getting <em className="text-butter">an app</em>
+            Chefni is getting <em className="text-petal">an app</em>
           </h2>
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-paper/75">
             We are building the Chefni app for iPhone and Android. It will be on the App Store and Google Play

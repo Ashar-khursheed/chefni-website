@@ -5,7 +5,7 @@ import { Reveal, RisingWords } from "@/components/motion/reveal";
 type PageHeroProps = {
   eyebrow: string;
   title: string;
-  /** Second line of the title, set in italic plum. */
+  /** Second line of the title, set in italic rose. */
   accent?: string;
   lead?: ReactNode;
   children?: ReactNode;
@@ -24,7 +24,7 @@ export function PageHero({ eyebrow, title, accent, lead, children }: PageHeroPro
         </Reveal>
         <h1 className="mt-6 max-w-5xl text-[clamp(2.75rem,7.4vw,6.25rem)] leading-[0.96]">
           <RisingWords text={title} delay={0.05} className="block" />
-          {accent && <RisingWords text={accent} delay={0.2} className="block italic text-plum" />}
+          {accent && <RisingWords text={accent} delay={0.2} className="block italic text-rose" />}
         </h1>
         {lead && (
           <Reveal delay={0.35} className="mt-7 max-w-2xl text-lg leading-relaxed text-ink-soft md:text-xl">
