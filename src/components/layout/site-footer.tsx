@@ -1,9 +1,7 @@
 import Link from "next/link";
 
-import { Arrow } from "@/components/ui/button";
-import { FacebookIcon, XIcon, YouTubeIcon } from "@/components/ui/icons";
+import { FacebookIcon, MailIcon, PhoneIcon, PinIcon, XIcon, YouTubeIcon } from "@/components/ui/icons";
 import { Logo } from "@/components/ui/logo";
-import { StoreBadges } from "@/components/ui/store-badges";
 import { products } from "@/lib/products";
 import { nav, site } from "@/lib/site";
 
@@ -13,32 +11,21 @@ const socials = [
   { href: site.social.youtube, label: "Chefni on YouTube", Icon: YouTubeIcon },
 ];
 
-const heading = "mb-5 text-xs font-semibold uppercase tracking-[0.16em] text-paper/50";
-const link = "text-paper/80 transition-colors hover:text-petal";
+const heading = "mb-4 font-sans text-base font-bold tracking-normal text-ink";
+const link = "text-ink/75 transition-colors hover:text-rose";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-ink text-paper">
-      <div className="scallop text-cream" aria-hidden />
-
-      <div className="container-page pb-10 pt-20 md:pt-28">
-        <Link href="/where-to-buy" className="group block border-b border-paper/15 pb-14 md:pb-20">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.16em] text-petal">Looking for Chefni?</p>
-          <p className="flex flex-wrap items-end gap-x-6 gap-y-2 font-display text-[clamp(2.75rem,8vw,7rem)] leading-[0.95] tracking-tight">
-            See where <em className="text-berry">to buy</em>
-            <span className="mb-[0.12em] grid size-[0.7em] place-items-center rounded-full border border-paper/30 transition-colors duration-500 group-hover:border-berry group-hover:bg-berry">
-              <Arrow className="size-[0.3em]" />
-            </span>
-          </p>
-        </Link>
-
-        <div className="grid gap-12 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:gap-10">
+    <footer className="bg-sky text-ink">
+      <div className="container-page pb-8 pt-16 md:pt-20">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.3fr_1.2fr_1fr_1fr] lg:gap-10">
           <div>
-            <Logo className="h-20" />
-            <p className="mt-6 max-w-xs text-paper/65">
-              Premium frozen foods from a chef&rsquo;s kitchen in {site.city}. {site.tagline}
+            <Logo className="h-24" />
+            <p className="mt-5 max-w-xs text-ink/75">
+              Premium frozen foods from a chef&rsquo;s kitchen in {site.city}. {site.promise}.
             </p>
-            <ul className="mt-6 flex gap-2">
+            <h2 className={`${heading} mt-7`}>Connect with us</h2>
+            <ul className="flex gap-2">
               {socials.map(({ href, label, Icon }) => (
                 <li key={href}>
                   <a
@@ -46,7 +33,7 @@ export function SiteFooter() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="grid size-11 place-items-center rounded-full border border-paper/20 transition-colors duration-300 hover:border-berry hover:bg-berry"
+                    className="grid size-11 place-items-center rounded-full bg-paper/60 text-ink transition-colors duration-300 hover:bg-rose hover:text-paper"
                   >
                     <Icon className="size-[1.15rem]" />
                   </a>
@@ -55,10 +42,28 @@ export function SiteFooter() {
             </ul>
           </div>
 
+          <div>
+            <h2 className={heading}>Contact us</h2>
+            <address className="space-y-3 not-italic">
+              <p className="flex gap-3 text-ink/75">
+                <PinIcon className="mt-0.5 size-5 shrink-0 text-rose" />
+                {site.city}, Pakistan
+              </p>
+              <a href={site.phone.href} className={`flex gap-3 ${link}`}>
+                <PhoneIcon className="mt-0.5 size-5 shrink-0 text-rose" />
+                {site.phone.display}
+              </a>
+              <a href={`mailto:${site.email}`} className={`flex gap-3 ${link}`}>
+                <MailIcon className="mt-0.5 size-5 shrink-0 text-rose" />
+                {site.email}
+              </a>
+            </address>
+          </div>
+
           <nav aria-label="Footer">
-            <h2 className={heading}>Explore</h2>
-            <ul className="space-y-3">
-              {nav.map((item) => (
+            <h2 className={heading}>Quick links</h2>
+            <ul className="space-y-2.5">
+              {[...nav, { href: "/contact", label: "Contact" }].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className={link}>
                     {item.label}
@@ -70,7 +75,7 @@ export function SiteFooter() {
 
           <div>
             <h2 className={heading}>Products</h2>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {products.map((product) => (
                 <li key={product.slug}>
                   <Link href={`/products/${product.slug}`} className={link}>
@@ -80,41 +85,13 @@ export function SiteFooter() {
               ))}
             </ul>
           </div>
-
-          <div>
-            <h2 className={heading}>Say hello</h2>
-            <address className="space-y-3 not-italic text-paper/85">
-              <a href={site.phone.href} className="block font-display text-3xl transition-colors hover:text-petal">
-                {site.phone.display}
-              </a>
-              <a href={`mailto:${site.email}`} className="block transition-colors hover:text-petal">
-                {site.email}
-              </a>
-              <a
-                href={site.social.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-paper/65 transition-colors hover:text-petal"
-              >
-                facebook.com/chefni
-              </a>
-            </address>
-          </div>
         </div>
 
-        <div className="flex flex-col gap-6 rounded-3xl bg-paper/[0.04] p-6 md:flex-row md:items-center md:justify-between md:p-8">
-          <div>
-            <p className="font-display text-2xl">The Chefni app is on its way</p>
-            <p className="mt-1 text-paper/60">Coming soon to iPhone and Android.</p>
-          </div>
-          <StoreBadges />
-        </div>
-
-        <div className="mt-10 flex flex-col gap-3 text-sm text-paper/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-2 border-t border-ink/15 pt-6 text-sm text-ink/65 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
-          <p>{site.promise}</p>
+          <p className="uppercase tracking-[0.2em]">{site.tagline}</p>
         </div>
       </div>
     </footer>

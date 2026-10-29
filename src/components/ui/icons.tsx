@@ -114,3 +114,76 @@ export function GooglePlayIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function TimerIcon(props: IconProps) {
+  return (
+    <svg {...stroked} {...props}>
+      <circle cx="12" cy="13.5" r="7.5" />
+      <path d="M12 9.5v4l2.5 1.5M10 3h4M18.5 6.5l1.5-1.5" />
+    </svg>
+  );
+}
+
+export function ChefHatIcon(props: IconProps) {
+  return (
+    <svg {...stroked} {...props}>
+      <path d="M7 14.5a4 4 0 0 1-.6-7.95 5.5 5.5 0 0 1 11.2 0A4 4 0 0 1 17 14.5V20H7Z" />
+      <path d="M7 17h10" />
+    </svg>
+  );
+}
+
+export function TruckIcon(props: IconProps) {
+  return (
+    <svg {...stroked} {...props}>
+      <path d="M2.5 6.5h11v10h-11ZM13.5 9.5h4l3 3.5v3.5h-7" />
+      <circle cx="6.5" cy="17.5" r="1.8" />
+      <circle cx="17" cy="17.5" r="1.8" />
+    </svg>
+  );
+}
+
+export function CartIcon(props: IconProps) {
+  return (
+    <svg {...stroked} {...props}>
+      <path d="M3 4h2.2l2.2 10.5h10.2L20 7.5H6.3" />
+      <circle cx="9" cy="19" r="1.5" />
+      <circle cx="16.5" cy="19" r="1.5" />
+    </svg>
+  );
+}
+
+export function PanIcon(props: IconProps) {
+  return (
+    <svg {...stroked} {...props}>
+      <ellipse cx="10" cy="13" rx="7" ry="3.5" />
+      <path d="M3 13v1.5c0 1.9 3.1 3.5 7 3.5s7-1.6 7-3.5V13M17 12.5l4.5-1.5M8 4.5c.8.9.8 1.8 0 2.7M11.5 4.5c.8.9.8 1.8 0 2.7" />
+    </svg>
+  );
+}
+
+export function PlateIcon(props: IconProps) {
+  return (
+    <svg {...stroked} {...props}>
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="3.2" />
+      <path d="M3 4v4.5a1.5 1.5 0 0 0 3 0V4M4.5 9.5V20M20 4c-1.4 0-2.2 2-2.2 4.5S19 12 20 12v8" />
+    </svg>
+  );
+}
+
+export function SparkleIcon(props: IconProps) {
+  return (
+    <svg {...filled} {...props}>
+      <path d="M12 2.5c.5 4.6 2.4 6.9 7.5 7.5-5.1.6-7 2.9-7.5 7.5-.5-4.6-2.4-6.9-7.5-7.5 5.1-.6 7-2.9 7.5-7.5ZM19 15.5c.2 1.9 1 2.8 3 3-2 .2-2.8 1.1-3 3-.2-1.9-1-2.8-3-3 2-.2 2.8-1.1 3-3Z" />
+    </svg>
+  );
+}
+
+export function QuoteIcon(props: IconProps) {
+  return (
+    <svg {...filled} {...props}>
+      <path d="M10 7H6.5A2.5 2.5 0 0 0 4 9.5V13h4.5c0 2-1 3.2-3 3.7l.6 1.8C9.6 17.8 10 15 10 12.5Zm10 0h-3.5A2.5 2.5 0 0 0 14 9.5V13h4.5c0 2-1 3.2-3 3.7l.6 1.8c3.5-.7 3.9-3.5 3.9-6Z" />
+    </svg>
+  );
+}

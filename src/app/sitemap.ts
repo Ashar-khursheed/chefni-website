@@ -11,7 +11,7 @@ const routes: Route[] = [
   ...products.map((product): Route => ({ path: `/products/${product.slug}`, priority: 0.9, changeFrequency: "weekly" })),
   { path: "/where-to-buy", priority: 0.9, changeFrequency: "weekly" },
   { path: "/about", priority: 0.7, changeFrequency: "yearly" },
-  { path: "/arya-and-mom", priority: 0.6, changeFrequency: "monthly" },
+  { path: "/recipes", priority: 0.7, changeFrequency: "monthly" },
   { path: "/contact", priority: 0.6, changeFrequency: "yearly" },
 ];
 

@@ -25,5 +25,7 @@ Environment variables, documented in `.env.example`:
   product or a new shop here updates the home page, `/products`, `/where-to-buy`,
   the footer and the sitemap.
 - `src/lib/site.ts`: phone, email, social links, navigation.
-- `src/lib/experience.ts`: career timeline and the Arya & Mom video list.
+- `src/lib/experience.ts`: career timeline.
+- `src/lib/recipes.ts`: serving ideas on `/recipes`.
+- `src/lib/site.ts` → `testimonials`: customer reviews on the home page. Add real ones only.
 - `next.config.ts`: redirects from the old WordPress URLs and security headers.

@@ -55,10 +55,3 @@ export const experience: Role[] = [
 
 export const tvShows = ["Live@Nine", "Lively Weekend", "Date with a Cake", "Food Fantasy"] as const;
 
-export const aryaVideos = [
-  { id: "zompPffZLks", title: "Vanilla chocolate chip cupcakes with fluffy vanilla frosting" },
-  { id: "QDNU6Z6Ci_E", title: "Chocolate Chip Cookies by Arya" },
-  { id: "IqkJeFUODFs", title: "Brownies" },
-  { id: "0YbaPzPzoOg", title: "Pancakes by Arya" },
-  { id: "T-gHJF2kvwQ", title: "Scrambled Eggs" },
-] as const;

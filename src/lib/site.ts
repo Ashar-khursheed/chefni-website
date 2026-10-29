@@ -12,12 +12,10 @@ export const site = {
   country: "PK",
   phone: { display: "0332-3533083", href: "tel:+923323533083", e164: "+923323533083" },
   email: "info@chefni.com",
-  aryaEmail: "info@aryaandmom.com",
   social: {
     facebook: "https://www.facebook.com/chefni/",
     twitter: "https://www.twitter.com/chefni",
     youtube: "https://www.youtube.com/chefni",
-    aryaYoutube: "https://www.youtube.com/channel/UCOReSs-7hnAt6c1IZkh9GVA",
   },
   // Paste the store listing URLs into .env once the app is live; until then
   // the badges render as "coming soon" and are not links.
@@ -28,18 +26,18 @@ export const site = {
 } as const;
 
 export const nav = [
-  { href: "/products", label: "Products" },
-  { href: "/where-to-buy", label: "Where to buy" },
-  { href: "/about", label: "Our chef" },
-  { href: "/arya-and-mom", label: "Arya & Mom" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "Our Story" },
+  { href: "/products", label: "Shop" },
+  { href: "/recipes", label: "Recipes" },
+  { href: "/where-to-buy", label: "Locations" },
 ] as const;
 
-export const highlights = [
-  "Plain Egg Noodles",
-  "Fine. Fast. Fab.",
-  "Beef Burger Patty",
-  "Solely premium for you",
-  "Fully cooked",
-  "Frozen for convenience",
-] as const;
+export type Testimonial = { quote: string; name: string; detail?: string };
+
+/**
+ * Customer reviews shown under "Voices of our customers" on the home page.
+ * Only add real reviews, quoted with the customer's permission. While the list
+ * is empty the section invites visitors to leave the first one instead.
+ */
+export const testimonials: Testimonial[] = [];

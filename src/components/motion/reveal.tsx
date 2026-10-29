@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "motion/react";
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -73,18 +73,21 @@ export function RisingWords({
   return (
     <span className={className}>
       <span className="sr-only">{text}</span>
+      {/* The space sits between the clipped words, not inside them, so long lines can wrap. */}
       {text.split(" ").map((word, index) => (
-        <span key={`${word}-${index}`} aria-hidden className="inline-block overflow-hidden pb-[0.14em] align-bottom">
-          <motion.span
-            className="inline-block"
-            initial={{ y: "110%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 1, delay: delay + index * 0.07, ease: EASE }}
-          >
-            {word}
-            {" "}
-          </motion.span>
-        </span>
+        <Fragment key={`${word}-${index}`}>
+          {index > 0 && " "}
+          <span aria-hidden className="inline-block overflow-hidden pb-[0.14em] align-bottom">
+            <motion.span
+              className="inline-block"
+              initial={{ y: "110%" }}
+              animate={{ y: 0 }}
+              transition={{ duration: 1, delay: delay + index * 0.07, ease: EASE }}
+            >
+              {word}
+            </motion.span>
+          </span>
+        </Fragment>
       ))}
     </span>
   );

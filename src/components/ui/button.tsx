@@ -9,7 +9,7 @@ const base =
 const variants = {
   primary: "bg-rose text-paper hover:bg-maroon",
   outline: "border border-ink/20 text-ink hover:border-ink hover:bg-ink hover:text-paper",
-  light: "bg-paper text-ink hover:bg-petal",
+  light: "bg-paper text-ink hover:bg-blush",
   ghostLight: "border border-paper/30 text-paper hover:bg-paper hover:text-ink",
 } as const;
 

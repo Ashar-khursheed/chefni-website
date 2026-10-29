@@ -1,16 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #fbf5ee;
-  --color-paper: #fffdfa;
-  --color-sand: #f4e7dc;
-  --color-ink: #2e1a22;
-  --color-ink-soft: #6b525a;
-  --color-rose: #c8336a;
-  --color-maroon: #70293d;
-  --color-berry: #ec6a94;
-  --color-blush: #fde4ec;
-  --color-petal: #ffb1cf;
+  /* Brand palette, taken from the Chefni logo. */
+  --color-cream: #f5f0ef; /* Warm Off-White */
+  --color-paper: #fffcfb;
+  --color-sand: #fbe9ee; /* pink section wash */
+  --color-ink: #3d2630;
+  --color-ink-soft: #6e5560;
+  --color-rose: #cd5772; /* Deep Rose Pink: buttons, links */
+  --color-maroon: #b1576c; /* Mauve Berry: hover, outlines */
+  --color-berry: #e37293; /* Watermelon Rose */
+  --color-blush: #fce4ec;
+  --color-petal: #ec8eb2; /* Candy Blush Pink */
+  --color-sky: #8dc2ea; /* Powder Sky Blue: structure */
+  --color-sky-soft: #a2b7d9; /* Dusty Baby Blue */
+  --color-mist: #e3f0fa;
 
   --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
   --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
@@ -111,6 +115,27 @@
 
   .scallop-up {
     transform: scaleY(-1);
+  }
+
+  /* Dashed stitching just inside the edge, like the ribbon on the Chefni logo. */
+  .stitch {
+    position: relative;
+  }
+
+  .stitch::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 1.5px dashed color-mix(in srgb, currentColor 45%, transparent);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  /* Centred serif section title used across the home page. */
+  .section-title {
+    font-size: clamp(2rem, 4.2vw, 3rem);
+    line-height: 1.08;
+    text-align: center;
   }
 
   /* Semicircular top for a 4:5 frame. Percentages keep the bottom corners intact,

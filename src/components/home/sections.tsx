@@ -1,118 +1,243 @@
 import Image from "next/image";
+import Link from "next/link";
 
-import brandLogo from "@/assets/brand/chefni-logo.png";
-import appArt from "@/assets/food/noodle-bowl.webp";
-import aryaPhoto from "@/assets/story/arya.png";
 import chefAtCothm from "@/assets/story/chef-at-cothm.jpg";
-import { CountUp } from "@/components/motion/count-up";
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
-import { AvailabilityList } from "@/components/products/availability";
 import { ButtonLink, TextLink } from "@/components/ui/button";
-import { FacebookIcon, YouTubeIcon } from "@/components/ui/icons";
-import { SectionHeading } from "@/components/ui/section-heading";
+import {
+  CartIcon,
+  ChefHatIcon,
+  FacebookIcon,
+  PanIcon,
+  PlateIcon,
+  QuoteIcon,
+  SparkleIcon,
+  TimerIcon,
+  TruckIcon,
+} from "@/components/ui/icons";
+import { KarachiMap } from "@/components/ui/karachi-map";
 import { StoreBadges } from "@/components/ui/store-badges";
-import { tvShows } from "@/lib/experience";
 import { products } from "@/lib/products";
-import { site } from "@/lib/site";
+import { site, testimonials } from "@/lib/site";
+import { stockists } from "@/lib/stockists";
+import { cn } from "@/lib/utils";
 
-export function WhereToBuy() {
+const card = "rounded-[1.75rem] bg-paper shadow-[0_24px_60px_-36px_rgb(61_38_48/0.4)]";
+
+/* Featured products beside "The Chefni Difference", on the pink wash. */
+export function FeaturedAndDifference() {
+  const differences = [
+    {
+      title: "Convenience",
+      body: "Fully cooked and frozen, so dinner is minutes away, not hours.",
+      Icon: TimerIcon,
+    },
+    {
+      title: "Chef-crafted",
+      body: `Developed by ${site.chef}, with two decades in professional kitchens.`,
+      Icon: ChefHatIcon,
+    },
+    {
+      title: "Easy retail",
+      body: `On the shelf in ${site.city}, or a phone call away.`,
+      Icon: TruckIcon,
+    },
+  ];
+
   return (
-    <section className="bg-maroon text-paper">
-      <div className="scallop text-cream" aria-hidden />
-      <div className="container-page py-24 md:py-32">
-        <div className="flex flex-wrap items-end justify-between gap-8">
-          <SectionHeading
-            eyebrow="Where to buy"
-            tone="light"
-            lead="Chefni is not sold on this website. Here is where each product is available right now."
-          >
-            Find it in <em className="text-petal">Karachi</em>
-          </SectionHeading>
-          <Reveal delay={0.1}>
-            <ButtonLink href="/where-to-buy" variant="light">
-              All the details
-            </ButtonLink>
+    <section className="bg-sand py-20 md:py-28">
+      <div className="container-page grid gap-16 lg:grid-cols-[1.25fr_1fr] lg:gap-12">
+        <div>
+          <Reveal>
+            <h2 className="section-title">Featured products</h2>
           </Reveal>
+          <RevealGroup className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5">
+            {products.map((product) => {
+              const inStore = product.availability.some((item) => item.kind === "store");
+              return (
+                <RevealItem key={product.slug}>
+                  <Link
+                    href={`/products/${product.slug}`}
+                    className={cn(card, "group flex h-full flex-col items-center p-4 pb-6 text-center transition-transform duration-500 ease-out-expo hover:-translate-y-1.5")}
+                  >
+                    <span className="self-start rounded-full bg-petal px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-paper">
+                      {inStore ? "In stores" : "New"}
+                    </span>
+                    <span className="relative mt-2 grid aspect-square w-full place-items-center rounded-2xl bg-blush/70">
+                      <Image
+                        src={product.image}
+                        alt={product.imageAlt}
+                        sizes="(min-width: 1024px) 14vw, (min-width: 640px) 28vw, 80vw"
+                        className="h-auto w-[86%] transition-transform duration-700 ease-out-expo group-hover:scale-105"
+                      />
+                    </span>
+                    <span className="mt-4 font-display text-xl leading-tight">{product.name}</span>
+                    {product.price && <span className="mt-1 text-sm text-ink-soft">{product.price.display}</span>}
+                    <span className="mt-auto pt-4">
+                      <span className="inline-block rounded-full bg-maroon px-4 py-1.5 text-xs font-semibold text-paper transition-colors group-hover:bg-rose">
+                        Shop now
+                      </span>
+                    </span>
+                  </Link>
+                </RevealItem>
+              );
+            })}
+            <RevealItem>
+              <div className="flex h-full min-h-56 flex-col items-center justify-center rounded-[1.75rem] border-2 border-dashed border-petal/70 p-6 text-center">
+                <SparkleIcon className="size-8 text-petal" />
+                <p className="mt-4 font-display text-xl leading-tight">More on the way</p>
+                <p className="mt-2 text-sm text-ink-soft">New Chefni products are being prepared.</p>
+              </div>
+            </RevealItem>
+          </RevealGroup>
         </div>
 
-        <RevealGroup className="mt-14 grid gap-6 md:grid-cols-2">
-          {products.map((product) => (
-            <RevealItem key={product.slug} className="rounded-[2rem] bg-paper/[0.06] p-7 md:p-9">
-              <div className="mb-6 flex items-baseline justify-between gap-4">
-                <h3 className="text-3xl">{product.name}</h3>
-                {product.price && <p className="font-display text-2xl italic text-petal">{product.price.display}</p>}
-              </div>
-              <AvailabilityList items={product.availability} tone="light" />
-            </RevealItem>
-          ))}
-        </RevealGroup>
+        <div>
+          <Reveal>
+            <h2 className="section-title">The Chefni difference</h2>
+          </Reveal>
+          <RevealGroup className="mt-10 grid gap-8 sm:grid-cols-3 lg:gap-5">
+            {differences.map(({ title, body, Icon }) => (
+              <RevealItem key={title} className="text-center">
+                <span className="mx-auto grid size-20 place-items-center rounded-full border-2 border-petal/60 bg-paper text-rose">
+                  <Icon className="size-9" />
+                </span>
+                <h3 className="mt-5 font-sans text-lg font-semibold tracking-normal">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-soft">{body}</p>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
       </div>
-      <div className="scallop scallop-up text-cream" aria-hidden />
     </section>
   );
 }
 
-export function ChefStory() {
-  const years = new Date().getFullYear() - site.founded;
+/* "How to order & enjoy" steps beside "Find Chefni near you". */
+export function OrderAndFind() {
+  const steps = [
+    { title: "Pick your meal", body: "Choose noodles, patties or both from the Chefni range.", Icon: CartIcon },
+    { title: "Cook with ease", body: "Straight from the freezer to the pan, in minutes.", Icon: PanIcon },
+    { title: "Serve & enjoy", body: "Plate it up and bring gourmet quality to every home.", Icon: PlateIcon },
+  ];
 
   return (
-    <section className="py-24 md:py-36">
-      <div className="container-page grid items-center gap-14 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">
-        <Reveal className="relative">
-          <div className="relative aspect-[5/4] overflow-hidden rounded-[2rem] bg-blush">
+    <section className="py-20 md:py-28">
+      <div className="container-page grid gap-16 lg:grid-cols-[1.25fr_1fr] lg:gap-12">
+        <div>
+          <Reveal>
+            <h2 className="section-title">How to order &amp; enjoy</h2>
+          </Reveal>
+          <RevealGroup className="mt-12 grid gap-10 sm:grid-cols-3 sm:gap-6">
+            {steps.map(({ title, body, Icon }, index) => (
+              <RevealItem key={title} className="text-center">
+                <span className="relative mx-auto grid size-24 place-items-center rounded-full bg-blush text-rose">
+                  <Icon className="size-10" />
+                  <span className="absolute -left-1 -top-1 grid size-8 place-items-center rounded-full bg-berry text-sm font-bold text-paper">
+                    {index + 1}
+                  </span>
+                </span>
+                <h3 className="mt-5 font-sans text-lg font-semibold tracking-normal">{title}</h3>
+                <p className="mx-auto mt-2 max-w-56 text-sm leading-relaxed text-ink-soft">{body}</p>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+
+        <div id="find" className="scroll-mt-28">
+          <Reveal>
+            <h2 className="section-title">Find Chefni near you</h2>
+          </Reveal>
+          <Reveal delay={0.1} className={cn(card, "mt-10 overflow-hidden p-2")}>
+            <KarachiMap pins={stockists} className="rounded-[1.4rem]" />
+          </Reveal>
+          <Reveal delay={0.2} className="mt-6 text-center">
+            <p className="flex flex-wrap justify-center gap-x-6 gap-y-1 font-display text-2xl text-maroon">
+              {stockists.map((name) => (
+                <span key={name}>{name}</span>
+              ))}
+            </p>
+            <p className="mt-1 text-sm text-ink-soft">or call {site.phone.display} to find the nearest stock</p>
+            <TextLink href="/where-to-buy" className="mt-5">
+              Visit store
+            </TextLink>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* Teaser row for the upcoming Chefni AI. */
+export function ChefniAi() {
+  return (
+    <section className="px-4 py-6 md:px-6">
+      <Reveal className="relative mx-auto max-w-[80rem] overflow-hidden rounded-[2.25rem] bg-sky px-6 py-14 text-center md:px-12 md:py-20">
+        <SparkleIcon aria-hidden className="absolute left-[8%] top-[18%] size-10 text-paper/70" />
+        <SparkleIcon aria-hidden className="absolute bottom-[14%] right-[9%] size-14 text-petal/80" />
+        <SparkleIcon aria-hidden className="absolute right-[22%] top-[12%] size-6 text-paper/60" />
+        <p className="stitch inline-block rounded-md bg-rose px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-paper">
+          Soon to come
+        </p>
+        <h2 className="mt-6 text-[clamp(2.5rem,6vw,4.5rem)] leading-none text-ink">
+          Chefni <em className="text-paper [text-shadow:0_2px_0_var(--color-rose)]">AI</em>
+        </h2>
+        <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-ink/80">
+          A smart kitchen companion from Chefni is on its way: meal ideas for what is in your freezer,
+          cooking help for every pack and the nearest place to buy, all in one app.
+        </p>
+        <StoreBadges tone="light" className="mt-9 justify-center" />
+      </Reveal>
+    </section>
+  );
+}
+
+/* Simple line drawing of a Karachi skyline, used as a quiet accent. */
+function Skyline({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 260 90" aria-hidden className={className} fill="none" stroke="currentColor" strokeWidth="1.4">
+      <path d="M0 88h260" />
+      <path d="M14 88V52h18v36M40 88V30h14v58M60 88V44h20v44" />
+      {/* domed mausoleum */}
+      <path d="M96 88V62h52v26M100 62c0-16 10-26 22-26s22 10 22 26M122 36v-8M106 62h32" />
+      <path d="M160 88V20l8-8 8 8v68M168 12V4M186 88V40h16v48M210 88V54h14v34M232 88V34l10-6v60" />
+    </svg>
+  );
+}
+
+export function OurStory() {
+  return (
+    <section className="relative overflow-hidden bg-sand py-20 md:py-28">
+      <div className="container-page">
+        <Reveal>
+          <h2 className="section-title">
+            Our story: rooted in {site.city}, <em className="text-rose">crafted for every home</em>
+          </h2>
+        </Reveal>
+        <div className="mt-12 grid items-center gap-10 md:grid-cols-2 lg:gap-16">
+          <Reveal className="relative aspect-[5/3] overflow-hidden rounded-[1.75rem] shadow-[0_30px_60px_-36px_rgb(61_38_48/0.5)]">
             <Image
               src={chefAtCothm}
               alt={`${site.chef} in chef whites in a teaching kitchen`}
               fill
               placeholder="blur"
-              sizes="(min-width: 1024px) 45vw, 90vw"
-              className="object-cover object-[38%_30%]"
+              sizes="(min-width: 768px) 45vw, 90vw"
+              className="object-cover"
             />
-          </div>
-          <div className="absolute -bottom-6 right-4 rounded-2xl bg-rose px-6 py-4 text-paper shadow-[0_24px_50px_-24px_rgb(112_41_61/0.8)] md:right-8">
-            <p className="font-display text-xl italic">As seen on Masala TV</p>
-            <p className="mt-1 text-sm text-paper/75">{tvShows.join(" · ")}</p>
-          </div>
-        </Reveal>
-
-        <div>
-          <SectionHeading eyebrow="The chef behind Chefni">
-            A chef&rsquo;s kitchen, <em className="text-rose">now in your freezer</em>
-          </SectionHeading>
-
-          <Reveal delay={0.1}>
-            <blockquote className="mt-8 border-l-2 border-berry pl-6 font-display text-2xl italic leading-snug text-ink-soft">
-              &ldquo;Over the years, I was fortunate enough to be exposed to unique work environments and work
-              cultures.&rdquo;
-            </blockquote>
-            <p className="mt-6 max-w-xl leading-relaxed text-ink-soft">
-              Restaurant kitchens, live television and a culinary school classroom all sit behind the Chefni name.
-            </p>
           </Reveal>
-
-          <RevealGroup className="mt-10 grid grid-cols-3 gap-6 border-t border-ink/10 pt-8">
-            <RevealItem>
-              <p className="font-display text-5xl leading-none md:text-6xl">
-                <CountUp value={years} />
-              </p>
-              <p className="mt-2 text-sm text-ink-soft">years of Chefni</p>
-            </RevealItem>
-            <RevealItem>
-              <p className="font-display text-5xl leading-none md:text-6xl">
-                <CountUp value={tvShows.length} />
-              </p>
-              <p className="mt-2 text-sm text-ink-soft">cooking shows on Masala TV</p>
-            </RevealItem>
-            <RevealItem>
-              <p className="font-display text-5xl leading-none md:text-6xl">
-                <CountUp value={2} />
-              </p>
-              <p className="mt-2 text-sm text-ink-soft">years training chefs at COTHM</p>
-            </RevealItem>
-          </RevealGroup>
-
-          <Reveal delay={0.1} className="mt-10">
-            <TextLink href="/about">Read the full story</TextLink>
+          <Reveal delay={0.1} className="relative">
+            <p className="font-display text-2xl italic text-maroon">
+              Founded by {site.chef} in {site.city}.
+            </p>
+            <p className="mt-4 leading-relaxed text-ink-soft">
+              Chef Rabia has been cooking under the Chefni name since {site.founded}. Restaurant pastry sections,
+              live cooking on Masala TV and years training future chefs at COTHM all lead here: bringing gourmet
+              quality to every home, one freezer-ready pack at a time.
+            </p>
+            <ButtonLink href="/about" variant="outline" className="mt-7">
+              Read our story
+            </ButtonLink>
+            <Skyline className="mt-8 ml-auto w-56 text-petal md:absolute md:-bottom-24 md:right-0 md:mt-0" />
           </Reveal>
         </div>
       </div>
@@ -120,116 +245,51 @@ export function ChefStory() {
   );
 }
 
-export function FacebookBand() {
+export function Testimonials() {
   return (
-    <section className="container-page pb-24 md:pb-32">
-      <Reveal>
-        <a
-          href={site.social.facebook}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative flex flex-col gap-8 overflow-hidden rounded-[2.5rem] bg-ink px-6 py-12 text-paper md:flex-row md:items-center md:justify-between md:px-16 md:py-16"
-        >
-          <div aria-hidden className="absolute -right-20 -top-24 size-72 rounded-full bg-berry/25 transition-transform duration-700 ease-out-expo group-hover:scale-125" />
-          <div className="relative">
-            <p className="eyebrow text-petal">facebook.com/chefni</p>
-            <h2 className="mt-5 text-[clamp(2.25rem,5vw,4rem)] leading-[1.02]">
-              Keep up with Chefni <em className="text-berry">on Facebook</em>
-            </h2>
-            <p className="mt-4 max-w-xl text-lg text-paper/70">
-              Follow the Chefni page for new products and new places to find them.
-            </p>
-          </div>
-          <span className="relative inline-flex shrink-0 items-center gap-3 self-start rounded-full bg-paper px-7 py-4 font-semibold text-ink transition-colors duration-300 group-hover:bg-petal md:self-auto">
-            <FacebookIcon className="size-5" />
-            Follow Chefni
-          </span>
-        </a>
-      </Reveal>
-    </section>
-  );
-}
+    <section className="py-20 md:py-28">
+      <div className="container-page">
+        <Reveal>
+          <h2 className="section-title">Voices of our customers</h2>
+        </Reveal>
 
-export function AryaAndMom() {
-  return (
-    <section className="container-page">
-      <Reveal className="relative overflow-hidden rounded-[2.5rem] bg-blush px-6 py-14 md:px-16 md:py-20">
-        <div aria-hidden className="absolute -right-24 -top-24 size-80 rounded-full bg-berry/15" />
-        <div aria-hidden className="absolute -bottom-44 left-[8%] size-72 rounded-full bg-petal/35" />
-
-        <div className="relative grid items-center gap-10 md:grid-cols-[auto_1fr] md:gap-16">
-          <div className="mx-auto w-44 -rotate-3 transition-transform duration-700 ease-out-expo hover:rotate-0 md:w-56">
-            <Image
-              src={aryaPhoto}
-              alt="Arya, the young cook from the Arya & Mom videos"
-              sizes="224px"
-              className="h-auto w-full drop-shadow-[0_24px_30px_rgb(46_26_34/0.25)]"
-            />
-          </div>
-
-          <div>
-            <p className="eyebrow">For little cooks</p>
-            <h2 className="mt-5 text-[clamp(2.25rem,5vw,4rem)] leading-[1.02]">
-              Join <em className="text-rose">Arya &amp; Mom</em> in the kitchen
-            </h2>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
-              Pancakes, brownies, chocolate chip cookies and cupcakes, made by Arya with a little help from Mom.
-              Watch along and make them at home.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <ButtonLink href="/arya-and-mom">Watch the videos</ButtonLink>
-              <a
-                href={site.social.aryaYoutube}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full px-5 py-3.5 font-semibold text-ink transition-colors hover:text-rose"
-              >
-                <YouTubeIcon className="size-5" />
-                Subscribe on YouTube
-              </a>
-            </div>
-          </div>
-        </div>
-      </Reveal>
-    </section>
-  );
-}
-
-export function AppComingSoon() {
-  return (
-    <section id="app" className="container-page py-24 md:py-36">
-      <Reveal className="relative grid overflow-hidden rounded-[2.5rem] bg-maroon text-paper lg:grid-cols-[1.15fr_0.85fr]">
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-[0.07] [background-image:radial-gradient(circle,white_1.5px,transparent_1.5px)] [background-size:22px_22px]"
-        />
-
-        <div className="relative px-6 py-14 md:px-16 md:py-24">
-          <p className="eyebrow text-petal">Coming soon</p>
-          <h2 className="mt-5 text-[clamp(2.25rem,5vw,4.25rem)] leading-[1.02]">
-            Chefni is getting <em className="text-petal">an app</em>
-          </h2>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-paper/75">
-            We are building the Chefni app for iPhone and Android. It will be on the App Store and Google Play
-            soon.
-          </p>
-          <StoreBadges className="mt-9" />
-        </div>
-
-        <div className="relative flex items-end justify-center px-6 lg:pt-16">
-          {/* Phone drawn in CSS so there is no mock screenshot to keep in sync. */}
-          <div className="relative w-64 translate-y-10 rounded-t-[2.75rem] border-[10px] border-b-0 border-ink bg-cream pb-10 shadow-[0_-30px_80px_-20px_rgb(0_0_0/0.5)] transition-transform duration-700 ease-out-expo hover:translate-y-4">
-            <div className="mx-auto mt-2.5 h-5 w-20 rounded-full bg-ink" />
-            <div className="px-5 pt-6 text-center text-ink">
-              <Image src={brandLogo} alt="" sizes="120px" className="mx-auto h-auto w-28" />
-              <div className="mt-5 grid aspect-square place-items-center rounded-3xl bg-blush p-4">
-                <Image src={appArt} alt="" sizes="220px" className="h-auto w-full" />
-              </div>
-              <p className="mt-4 font-display text-lg italic">{site.tagline}</p>
-            </div>
-          </div>
-        </div>
-      </Reveal>
+        {testimonials.length > 0 ? (
+          <RevealGroup className="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-2">
+            {testimonials.map((review) => (
+              <RevealItem key={review.name}>
+                <figure className={cn(card, "relative h-full p-7")}>
+                  <QuoteIcon className="absolute bottom-5 right-6 size-7 text-petal/60" />
+                  <figcaption className="flex items-center gap-3">
+                    <span className="grid size-11 place-items-center rounded-full bg-blush font-display text-lg text-rose">
+                      {review.name.charAt(0)}
+                    </span>
+                    <span>
+                      <span className="block font-semibold">{review.name}</span>
+                      {review.detail && <span className="text-sm text-ink-soft">{review.detail}</span>}
+                    </span>
+                  </figcaption>
+                  <blockquote className="mt-4 leading-relaxed text-ink/85">&ldquo;{review.quote}&rdquo;</blockquote>
+                </figure>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        ) : (
+          <Reveal delay={0.1} className={cn(card, "mx-auto mt-12 flex max-w-2xl flex-col items-center p-8 text-center md:p-10")}>
+            <QuoteIcon className="size-9 text-petal" />
+            <p className="mt-4 font-display text-2xl">Tried Chefni? We would love to hear from you.</p>
+            <p className="mt-2 text-ink-soft">Share your review on our Facebook page and it may appear here.</p>
+            <a
+              href={site.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2.5 rounded-full bg-rose px-6 py-3.5 font-semibold text-paper transition-colors hover:bg-maroon"
+            >
+              <FacebookIcon className="size-5" />
+              Leave a review
+            </a>
+          </Reveal>
+        )}
+      </div>
     </section>
   );
 }

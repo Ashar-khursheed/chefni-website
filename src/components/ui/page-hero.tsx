@@ -13,10 +13,10 @@ type PageHeroProps = {
 
 export function PageHero({ eyebrow, title, accent, lead, children }: PageHeroProps) {
   return (
-    <section className="relative overflow-x-clip pb-14 pt-36 md:pb-20 md:pt-48">
+    <section className="relative overflow-x-clip bg-gradient-to-b from-mist to-cream pb-14 pt-36 md:pb-20 md:pt-48">
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-40 -top-20 size-[36rem] rounded-full bg-blush/60 blur-3xl"
+        className="pointer-events-none absolute -left-40 -top-20 size-[36rem] rounded-full bg-sky/35 blur-3xl"
       />
       <div className="container-page relative">
         <Reveal y={12}>

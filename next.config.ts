@@ -11,8 +11,9 @@ const legacyRedirects: Array<[from: string, to: string]> = [
   ["/masala-tv", "/about#masala-tv"],
   ["/fika", "/about#fika"],
   ["/timeline-2", "/about"],
-  ["/aryas-hour", "/arya-and-mom"],
-  ["/product/aryas-and-mom", "/arya-and-mom"],
+  ["/aryas-hour", "/"],
+  ["/product/aryas-and-mom", "/"],
+  ["/arya-and-mom", "/"],
 ];
 
 const securityHeaders = [
@@ -26,7 +27,6 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
-    remotePatterns: [{ protocol: "https", hostname: "i.ytimg.com", pathname: "/vi/**" }],
   },
   async redirects() {
     return legacyRedirects.map(([source, destination]) => ({ source, destination, permanent: true }));

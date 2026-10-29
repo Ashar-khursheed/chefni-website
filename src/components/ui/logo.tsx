@@ -9,7 +9,7 @@ export function Logo({ className, preload = false }: { className?: string; prelo
       src={logo}
       alt="Chefni"
       preload={preload}
-      sizes="160px"
+      sizes="200px"
       className={cn("h-14 w-auto", className)}
     />
   );
